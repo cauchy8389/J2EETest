@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhy.test.dao.write.CifCodeMapper">
+  <resultMap id="BaseResultMap" type="com.zhy.test.entity.CifCode">
+    <id column="SERIALNO" jdbcType="INTEGER" property="SERIALNO" />
+    <result column="CODETYPE" jdbcType="VARCHAR" property="CODETYPE" />
+    <result column="TYPENAME" jdbcType="VARCHAR" property="TYPENAME" />
+    <result column="CODECODE" jdbcType="VARCHAR" property="CODECODE" />
+    <result column="REMARK" jdbcType="VARCHAR" property="REMARK" />
+    <result column="FLAG" jdbcType="VARCHAR" property="FLAG" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="CREATOR" />
+    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="CREATEDATE" />
+    <result column="OPERATOR" jdbcType="VARCHAR" property="OPERATOR" />
+    <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="UPDATEDATE" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zhy.test.entity.CifCode">
+    <result column="CODECNAME" jdbcType="LONGVARCHAR" property="CODECNAME" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SERIALNO, CODETYPE, TYPENAME, CODECODE, REMARK, FLAG, CREATOR, CREATEDATE, OPERATOR, 
+    UPDATEDATE
+  </sql>
+  <sql id="Blob_Column_List">
+    CODECNAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from cif_code
+    where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cif_code
+    where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhy.test.entity.CifCode">
+    insert into cif_code (SERIALNO, CODETYPE, TYPENAME, 
+      CODECODE, REMARK, FLAG, 
+      CREATOR, CREATEDATE, OPERATOR, 
+      UPDATEDATE, CODECNAME)
+    values (#{SERIALNO,jdbcType=INTEGER}, #{CODETYPE,jdbcType=VARCHAR}, #{TYPENAME,jdbcType=VARCHAR}, 
+      #{CODECODE,jdbcType=VARCHAR}, #{REMARK,jdbcType=VARCHAR}, #{FLAG,jdbcType=VARCHAR}, 
+      #{CREATOR,jdbcType=VARCHAR}, #{CREATEDATE,jdbcType=TIMESTAMP}, #{OPERATOR,jdbcType=VARCHAR}, 
+      #{UPDATEDATE,jdbcType=TIMESTAMP}, #{CODECNAME,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhy.test.entity.CifCode">
+    insert into cif_code
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="SERIALNO != null">
+        SERIALNO,
+      </if>
+      <if test="CODETYPE != null">
+        CODETYPE,
+      </if>
+      <if test="TYPENAME != null">
+        TYPENAME,
+      </if>
+      <if test="CODECODE != null">
+        CODECODE,
+      </if>
+      <if test="REMARK != null">
+        REMARK,
+      </if>
+      <if test="FLAG != null">
+        FLAG,
+      </if>
+      <if test="CREATOR != null">
+        CREATOR,
+      </if>
+      <if test="CREATEDATE != null">
+        CREATEDATE,
+      </if>
+      <if test="OPERATOR != null">
+        OPERATOR,
+      </if>
+      <if test="UPDATEDATE != null">
+        UPDATEDATE,
+      </if>
+      <if test="CODECNAME != null">
+        CODECNAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="SERIALNO != null">
+        #{SERIALNO,jdbcType=INTEGER},
+      </if>
+      <if test="CODETYPE != null">
+        #{CODETYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPENAME != null">
+        #{TYPENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CODECODE != null">
+        #{CODECODE,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARK != null">
+        #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="FLAG != null">
+        #{FLAG,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATOR != null">
+        #{CREATOR,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATEDATE != null">
+        #{CREATEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="OPERATOR != null">
+        #{OPERATOR,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATEDATE != null">
+        #{UPDATEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CODECNAME != null">
+        #{CODECNAME,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhy.test.entity.CifCode">
+    update cif_code
+    <set>
+      <if test="CODETYPE != null">
+        CODETYPE = #{CODETYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="TYPENAME != null">
+        TYPENAME = #{TYPENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CODECODE != null">
+        CODECODE = #{CODECODE,jdbcType=VARCHAR},
+      </if>
+      <if test="REMARK != null">
+        REMARK = #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="FLAG != null">
+        FLAG = #{FLAG,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATOR != null">
+        CREATOR = #{CREATOR,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATEDATE != null">
+        CREATEDATE = #{CREATEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="OPERATOR != null">
+        OPERATOR = #{OPERATOR,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATEDATE != null">
+        UPDATEDATE = #{UPDATEDATE,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CODECNAME != null">
+        CODECNAME = #{CODECNAME,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zhy.test.entity.CifCode">
+    update cif_code
+    set CODETYPE = #{CODETYPE,jdbcType=VARCHAR},
+      TYPENAME = #{TYPENAME,jdbcType=VARCHAR},
+      CODECODE = #{CODECODE,jdbcType=VARCHAR},
+      REMARK = #{REMARK,jdbcType=VARCHAR},
+      FLAG = #{FLAG,jdbcType=VARCHAR},
+      CREATOR = #{CREATOR,jdbcType=VARCHAR},
+      CREATEDATE = #{CREATEDATE,jdbcType=TIMESTAMP},
+      OPERATOR = #{OPERATOR,jdbcType=VARCHAR},
+      UPDATEDATE = #{UPDATEDATE,jdbcType=TIMESTAMP},
+      CODECNAME = #{CODECNAME,jdbcType=LONGVARCHAR}
+    where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhy.test.entity.CifCode">
+    update cif_code
+    set CODETYPE = #{CODETYPE,jdbcType=VARCHAR},
+      TYPENAME = #{TYPENAME,jdbcType=VARCHAR},
+      CODECODE = #{CODECODE,jdbcType=VARCHAR},
+      REMARK = #{REMARK,jdbcType=VARCHAR},
+      FLAG = #{FLAG,jdbcType=VARCHAR},
+      CREATOR = #{CREATOR,jdbcType=VARCHAR},
+      CREATEDATE = #{CREATEDATE,jdbcType=TIMESTAMP},
+      OPERATOR = #{OPERATOR,jdbcType=VARCHAR},
+      UPDATEDATE = #{UPDATEDATE,jdbcType=TIMESTAMP}
+    where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
+  </update>
+</mapper>
