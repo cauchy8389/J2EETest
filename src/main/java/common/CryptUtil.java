@@ -15,6 +15,8 @@ import javax.crypto.spec.DESKeySpec;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.text.ParseException;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
@@ -163,11 +165,21 @@ public class CryptUtil {
         System.out.println(StringUtils.chop(tmp3));
 
         try {
+            LocalDate holiday = LocalDate.parse("2018-12-25", DateTimeFormatter.ISO_DATE);
+            LocalDate holiday_next = holiday.plusDays(1);
+            ZoneId zoneId = ZoneId.systemDefault();
 
-            Date dt1 = DateUtils.parseDate("2011-07-08", DateFormatUtils.ISO_DATE_FORMAT.getPattern());
-            Date dt2 = DateUtils.addDays(dt1, 1);
-            System.out.println(DateFormatUtils.ISO_DATE_FORMAT.format(dt2));
-        } catch (ParseException e) {
+            LocalDateTime ldtHoliday = holiday.atStartOfDay();
+            ZonedDateTime zdt = ldtHoliday.atZone(zoneId);
+            Date date = Date.from(zdt.toInstant());
+
+            Instant instant = date.toInstant();
+            LocalDateTime localDateTime = instant.atZone(zoneId).toLocalDateTime();
+            System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE));
+
+            System.out.println(date);
+            System.out.println(holiday_next.format(DateTimeFormatter.ISO_DATE));
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

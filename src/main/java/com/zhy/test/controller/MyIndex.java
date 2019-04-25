@@ -1,12 +1,13 @@
 package com.zhy.test.controller;
 
 import com.google.code.kaptcha.Producer;
-import com.zhy.test.entity.*;
+import com.zhy.test.entity.CifCode;
+import com.zhy.test.entity.Person;
+import com.zhy.test.entity.Pet;
 import com.zhy.test.service.CifCodeService;
 import org.apache.commons.lang3.ObjectUtils;
 import org.nutz.img.Images;
 import org.nutz.json.Json;
-import org.nutz.lang.random.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
