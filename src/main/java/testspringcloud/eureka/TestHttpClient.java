@@ -14,7 +14,7 @@ public class TestHttpClient {
 		// 调用6次服务并输出结果
 		for(int i = 0; i < 6; i++) {
 			// 调用 GET 方法请求服务
-			HttpGet httpget = new HttpGet("http://localhost:9000/router");
+			HttpGet httpget = new HttpGet("http://localhost:9000/router2");
 			// 获取响应
 			HttpResponse response = httpclient.execute(httpget);
 			// 根据 响应解析出字符串
