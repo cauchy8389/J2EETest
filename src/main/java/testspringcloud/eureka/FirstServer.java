@@ -9,7 +9,8 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 public class FirstServer {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(FirstServer.class).run(args);
+        new SpringApplicationBuilder(FirstServer.class).
+                properties("spring.config.location=classpath:/eureka-server.yml").run(args);
     }
 
 }
