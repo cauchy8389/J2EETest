@@ -1,7 +1,7 @@
-package testspringcloud.eureka;
+package testspringcloud.ribbon;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
@@ -9,8 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class FirstInvoker {
 
 	public static void main(String[] args) {
-
 		new SpringApplicationBuilder(FirstInvoker.class).
-				properties("spring.config.location=classpath:/eureka-invoker.yml").run(args);
+				properties("spring.config.location=classpath:/ribbon/ribbon-invoker.yml").run(args);
 	}
 }

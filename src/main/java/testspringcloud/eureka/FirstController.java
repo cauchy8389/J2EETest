@@ -3,10 +3,7 @@ package testspringcloud.eureka;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class FirstController {
@@ -18,5 +15,11 @@ public class FirstController {
 		// 为了查看结果，将请求的URL设置到Person实例中
 		person.setMessage(request.getRequestURL().toString());
 		return person;
+	}
+
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@ResponseBody
+	public String hello() {
+		return "Hello World";
 	}
 }
