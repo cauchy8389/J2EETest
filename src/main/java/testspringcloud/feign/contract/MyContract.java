@@ -1,6 +1,7 @@
 package testspringcloud.feign.contract;
 
 import feign.MethodMetadata;
+import feign.Request;
 import org.springframework.cloud.openfeign.support.SpringMvcContract;
 
 import java.lang.annotation.Annotation;
@@ -28,8 +29,8 @@ public class MyContract extends SpringMvcContract {
 			// 获取服务的url
 			String url = myUrlAnn.url();
 			// 将值设置到模板中
-			data.template().method(httpMethod);
-			data.template().append(url);
+			data.template().method(Request.HttpMethod.valueOf(httpMethod));
+			data.template().uri(url, true);
 		}
 	}
 }

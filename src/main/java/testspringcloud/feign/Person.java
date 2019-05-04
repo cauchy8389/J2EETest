@@ -7,6 +7,13 @@ public class Person {
 	Integer age;
 	String message;
 
+	public Person(Integer id, String name, Integer age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+
 	public Integer getId() {
 		return id;
 	}

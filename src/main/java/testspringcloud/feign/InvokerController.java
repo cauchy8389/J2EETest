@@ -29,6 +29,15 @@ public class InvokerController {
 		Person p = personClient.getPerson(2);
 		return p.getMessage();
 	}
+
+	@RequestMapping(value = "/router2", method = RequestMethod.GET,
+			produces = MediaType.TEXT_PLAIN_VALUE)
+	@ResponseBody
+	public String router2() {
+		// 调用服务提供者的接口
+		String p = personClient.createPerson(new Person(6, "zhy", 22));
+		return p;
+	}
 	
 	@Autowired
 	private HelloClient helloClient;

@@ -10,6 +10,6 @@ public class FirstInvoker {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(FirstInvoker.class).
-				properties("spring.config.location=classpath:/ribbon/ribbon-invoker.yml").run(args);
+				properties("spring.config.location=classpath:/springcloud/ribbon-invoker.yml").run(args);
 	}
 }

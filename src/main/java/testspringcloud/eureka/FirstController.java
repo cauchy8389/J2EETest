@@ -22,4 +22,14 @@ public class FirstController {
 	public String hello() {
 		return "Hello World";
 	}
+
+	/**
+	 * 参数为JSON
+	 */
+	@RequestMapping(value = "/person/create", method = RequestMethod.POST)
+	@ResponseBody
+	public String createPerson(@RequestBody Person person) {
+		System.out.println(person.getName() + "-" + person.getAge());
+		return "Success, Person Id: " + person.getId();
+	}
 }

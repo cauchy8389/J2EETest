@@ -12,4 +12,7 @@ public class PersonController implements PersonClient {
 		return null;
 	}
 
+	public String createPerson(Person person) {
+		return null;
+	}
 }

@@ -1,0 +1,19 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: cloud-invoker
+  cloud:
+    loadbalancer:
+      retry: false
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#first-service-provider:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: org.crazyit.cloud.MyRule
+#    NFLoadBalancerPingClassName: org.crazyit.cloud.MyPing
+#    listOfServers: http://localhost:8080/,http://localhost:8081/

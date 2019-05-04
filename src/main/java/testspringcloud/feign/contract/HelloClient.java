@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author 杨恩雄
  *
  */
-@FeignClient(name = "spring-feign-provider")
+@FeignClient(name = "first-service-provider")
 public interface HelloClient {
 	
 	@MyUrl(method = "GET", url = "/hello")
