@@ -1,9 +1,13 @@
 package testspringcloud.eureka;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import testspringcloud.Person;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @RestController
 public class FirstController {
@@ -31,5 +35,20 @@ public class FirstController {
 	public String createPerson(@RequestBody Person person) {
 		System.out.println(person.getName() + "-" + person.getAge());
 		return "Success, Person Id: " + person.getId();
+	}
+
+	@RequestMapping(value = "/persons", method = RequestMethod.GET,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Person> findPersons(@RequestBody List<Integer> personIds, HttpServletRequest request) {
+		List<Person> result = new ArrayList<Person>();
+		for(Integer id : personIds) {
+			Person person = new Person();
+			person.setId(id);
+			person.setName("angus");
+			person.setAge(new Random().nextInt(30));
+			person.setMessage(request.getRequestURL().toString());
+			result.add(person);
+		}
+		return result;
 	}
 }

@@ -1,5 +1,7 @@
 package testspringcloud.feign;
 
+import testspringcloud.Person;
+
 public class PersonController implements PersonClient {
 
 	public String hello() {

@@ -1,11 +1,18 @@
-package testspringcloud.feign;
+package testspringcloud;
 
 public class Person {
 
-	Integer id;
-	String name;
-	Integer age;
-	String message;
+	private Integer id;
+	
+	private String name;
+	
+	private Integer age;
+	
+	private String message;
+
+	public Person() {
+		super();
+	}
 
 	public Person(Integer id, String name, Integer age) {
 		super();
@@ -45,4 +52,5 @@ public class Person {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	
 }
