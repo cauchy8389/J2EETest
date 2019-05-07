@@ -23,7 +23,9 @@ public class FirstController {
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	@ResponseBody
-	public String hello() {
+	public String hello() throws Exception {
+		int millis = new Random().nextInt(300) + 300;
+		Thread.sleep(millis);
 		return "Hello World";
 	}
 

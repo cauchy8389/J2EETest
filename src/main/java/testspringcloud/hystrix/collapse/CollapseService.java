@@ -8,6 +8,9 @@ import testspringcloud.Person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 @Component
@@ -21,7 +24,26 @@ public class CollapseService {
 	)
 	public Future<Person> getSinglePerson(Integer id) {
 		System.out.println("执行单个获取的方法");
-		return null;
+
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		Future<Person> future = executor.submit(() -> {
+				Person p = new Person();
+				p.setId(id);
+				p.setName("future");
+				return p;
+		});
+
+//			new Callable<Person>(){
+//			@Override
+//			public Person call() {
+//				Person p = new Person();
+//				p.setId(id);
+//				p.setName("future");
+//				return p;
+//			}
+
+		return future;
+		//return null;
 	}
 
 	@HystrixCommand

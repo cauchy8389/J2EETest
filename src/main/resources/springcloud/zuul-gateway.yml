@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: zuul-gateway
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  security:
+    enabled: false
+zuul:
+  ignoredPatterns: /sale/noRoute
+  # sensitiveHeaders: cookie
+  # ignoredHeaders: accept-language
+  routes:
+    sale:
+      path: /sale/**
+      serviceId: zuul-sale-service
+    routeTest:
+      path: /routeTest/163
+      url: http://www.163.com
+    route163:
+      url: http://www.163.com
+    noRoute163:
+      url: www.163.com
+    helloRoute:
+      path: /test/**
+      url: forward:/source/hello
+    restTestRoute:
+      path: /rest-tpl-sale/**
+      serviceId: zuul-sale-service
+    exceptionTest:
+      path: /exceptionTest/**
+  ribbon:
+    eager-load:
+      enabled: true
+
+  #SendForwardFilter:
+    #route:
+      #disable: true
+
+      
