@@ -8,8 +8,11 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  # 可以访问 http://localhost:8080/actuator/routes
 zuul:
   ignoredPatterns: /sale/noRoute
   # sensitiveHeaders: cookie

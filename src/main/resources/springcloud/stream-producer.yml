@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: spring-producer
+  kafka:
+    bootstrap-servers: zhy.cauchy8389.com:9092
+#    streams:
+#      replication-factor: 2
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

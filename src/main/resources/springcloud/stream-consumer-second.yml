@@ -1,0 +1,20 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: spring-second-consumer
+  kafka:
+        bootstrap-servers: zhy.cauchy8389.com:9092
+        consumer:
+          group-id: groupB
+#  cloud:
+#    stream:
+#      bindings:
+#        myInput:
+#          group: groupB
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
