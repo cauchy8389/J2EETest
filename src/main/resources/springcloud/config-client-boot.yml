@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: eureka-config-client
+  kafka:
+    bootstrap-servers: zhy.cauchy8389.com:9092
+  cloud:
+    config:
+      discovery: 
+        enabled: true
+        service-id: eureka-config-server
+      profile: dev
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# -Dspring.cloud.bootstrap.location=D:/WorkSpace/J2EETest/src/main/resources/springcloud/config-client-boot.yml

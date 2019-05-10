@@ -10,6 +10,7 @@ spring:
 #    producer:
 #      key-serializer: org.apache.kafka.common.serialization.StringSerializer
 #      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+# nohup kafka-server-start.sh config/server.properties &
 eureka:
   instance:
     hostname: localhost
