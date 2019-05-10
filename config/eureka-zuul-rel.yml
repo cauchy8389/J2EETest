@@ -1,0 +1,5 @@
+zuul:
+  routes:
+    routeTest:
+      path: /routeTest
+      url: http://www.sohu.com
