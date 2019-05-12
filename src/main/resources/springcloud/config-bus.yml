@@ -3,6 +3,8 @@ server:
 spring:
   kafka:
     bootstrap-servers: zhy.cauchy8389.com:9092
+    consumer:
+      group-id: groupA
 eureka:
   instance:
     hostname: localhost
@@ -10,5 +12,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+  endpoint:
+    bus-refresh:
+      enabled: true
