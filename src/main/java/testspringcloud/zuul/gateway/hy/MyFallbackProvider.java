@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 /**
  * 回退的处理类
- * @author 杨恩雄
+ * @author 张海云
  *
  */
 public class MyFallbackProvider implements FallbackProvider {

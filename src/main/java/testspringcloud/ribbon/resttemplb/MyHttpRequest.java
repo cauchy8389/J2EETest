@@ -8,7 +8,7 @@ import org.springframework.http.HttpRequest;
 
 /**
  * 自定义的请求类，用于转换URI
- * @author 杨恩雄
+ * @author 张海云
  *
  */
 public class MyHttpRequest implements HttpRequest {

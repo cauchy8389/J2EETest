@@ -10,7 +10,7 @@ import org.springframework.http.client.ClientHttpResponse;
 /**
  * 自定义拦截器
  * 
- * @author 杨恩雄
+ * @author 张海云
  *
  */
 public class MyInterceptor implements ClientHttpRequestInterceptor {

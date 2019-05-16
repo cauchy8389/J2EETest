@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * 客户端接口
- * @author 杨恩雄
+ * @author 张海云
  *
  */
 @FeignClient(name = "first-service-provider")

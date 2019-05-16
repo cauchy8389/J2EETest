@@ -15,7 +15,7 @@ public class FirstServiceProvider {
 		Scanner scan = new Scanner(System.in);
 		String port = scan.nextLine();
 		new SpringApplicationBuilder(FirstServiceProvider.class).
-				properties("spring.config.location=classpath:/eureka-provider.yml").properties(
+				properties("spring.config.location=classpath:/springcloud/eureka-provider.yml").properties(
 				"server.port=" + port).run(args);
 	}
 }

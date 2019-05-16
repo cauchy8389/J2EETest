@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 
 /**
  * 自定义Contract
- * @author 杨恩雄
+ * @author 张海云
  */
 public class MyContract extends SpringMvcContract {
 

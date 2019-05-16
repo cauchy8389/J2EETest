@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: zipkin-server
+  profiles.include: shared
+server:
+  port: 9411  #此处没有用，必须像下面那样通过变量声明，看zipkin-server-shared文件
+QUERY_PORT: 9412
+#zipkin:
+#  storage:
+#    type: mysql
+#spring:
+#  datasource:
+#    schema: classpath:/mysql.sql
+#    url: jdbc:mysql://localhost:3306/ZIPKIN?autoReconnect=true&characterEncoding=utf-8
+#    username: root
+#    password: 123456
+#    initialize: true
+#    continueOnError: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

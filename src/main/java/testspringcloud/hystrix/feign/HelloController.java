@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Feign与Hystrix整合
  * 
- * @author 杨恩雄
+ * @author 张海云
  *
  */
 @RestController
