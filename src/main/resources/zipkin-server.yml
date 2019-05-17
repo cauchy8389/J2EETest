@@ -4,7 +4,9 @@ spring:
   profiles.include: shared
 server:
   port: 9411  #此处没有用，必须像下面那样通过变量声明，看zipkin-server-shared文件
-QUERY_PORT: 9412
+QUERY_PORT: 9415
+HTTP_COLLECTOR_ENABLED: false
+KAFKA_BOOTSTRAP_SERVERS: zhy.cauchy8389.com:9092
 #zipkin:
 #  storage:
 #    type: mysql
