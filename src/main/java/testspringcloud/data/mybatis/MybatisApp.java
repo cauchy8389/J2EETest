@@ -3,6 +3,7 @@ package testspringcloud.data.mybatis;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
+//xkcoding 借鉴
 @SpringBootApplication
 public class MybatisApp {
 
