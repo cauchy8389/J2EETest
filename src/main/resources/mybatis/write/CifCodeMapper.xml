@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhy.test.dao.write.CifCodeMapper">
-  <resultMap id="BaseResultMap" type="com.zhy.test.entity.CifCode">
+<mapper namespace="testspringcloud.data.mybatis.dao.write.CifCodeMapper">
+  <!--<resultMap id="BaseResultMap" type="com.zhy.test.entity.CifCode">-->
+  <resultMap id="BaseResultMap" type="testspringcloud.data.mybatis.entity.CifCode">
     <id column="SERIALNO" jdbcType="INTEGER" property="SERIALNO" />
     <result column="CODETYPE" jdbcType="VARCHAR" property="CODETYPE" />
     <result column="TYPENAME" jdbcType="VARCHAR" property="TYPENAME" />
@@ -13,7 +14,7 @@
     <result column="OPERATOR" jdbcType="VARCHAR" property="OPERATOR" />
     <result column="UPDATEDATE" jdbcType="TIMESTAMP" property="UPDATEDATE" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.zhy.test.entity.CifCode">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="testspringcloud.data.mybatis.entity.CifCode">
     <result column="CODECNAME" jdbcType="LONGVARCHAR" property="CODECNAME" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -35,7 +36,7 @@
     delete from cif_code
     where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zhy.test.entity.CifCode">
+  <insert id="insert" parameterType="testspringcloud.data.mybatis.entity.CifCode">
     insert into cif_code (SERIALNO, CODETYPE, TYPENAME, 
       CODECODE, REMARK, FLAG, 
       CREATOR, CREATEDATE, OPERATOR, 
@@ -45,7 +46,7 @@
       #{CREATOR,jdbcType=VARCHAR}, #{CREATEDATE,jdbcType=TIMESTAMP}, #{OPERATOR,jdbcType=VARCHAR}, 
       #{UPDATEDATE,jdbcType=TIMESTAMP}, #{CODECNAME,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zhy.test.entity.CifCode">
+  <insert id="insertSelective" parameterType="testspringcloud.data.mybatis.entity.CifCode">
     insert into cif_code
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="SERIALNO != null">
@@ -118,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhy.test.entity.CifCode">
+  <update id="updateByPrimaryKeySelective" parameterType="testspringcloud.data.mybatis.entity.CifCode">
     update cif_code
     <set>
       <if test="CODETYPE != null">
@@ -154,7 +155,7 @@
     </set>
     where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zhy.test.entity.CifCode">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="testspringcloud.data.mybatis.entity.CifCode">
     update cif_code
     set CODETYPE = #{CODETYPE,jdbcType=VARCHAR},
       TYPENAME = #{TYPENAME,jdbcType=VARCHAR},
@@ -168,7 +169,7 @@
       CODECNAME = #{CODECNAME,jdbcType=LONGVARCHAR}
     where SERIALNO = #{SERIALNO,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhy.test.entity.CifCode">
+  <update id="updateByPrimaryKey" parameterType="testspringcloud.data.mybatis.entity.CifCode">
     update cif_code
     set CODETYPE = #{CODETYPE,jdbcType=VARCHAR},
       TYPENAME = #{TYPENAME,jdbcType=VARCHAR},

@@ -102,11 +102,12 @@
             <version>2.1.2.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-            <version>2.1.1.RELEASE</version>
-        </dependency>
+        <!--client 端只需此项就可联通zipkin2-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-zipkin</artifactId>-->
+            <!--<version>2.1.1.RELEASE</version>-->
+        <!--</dependency>-->
 
         <!--config bus专用项，平时关闭-->
         <!--<dependency>-->
@@ -139,12 +140,25 @@
             <!--<version>2.12.9</version>-->
         <!--</dependency>-->
 
-        <!-- spring data mybatis-->
+        <!-- spring data mybatis start-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.0.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.1.5.RELEASE</version>
+        </dependency>
+        <!-- spring data mybatis end-->
 
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
@@ -191,13 +205,6 @@
             <version>2.3.2</version>
         </dependency>
 
-        <!-- mybatis start-->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.4.6</version>
-        </dependency>
-
         <dependency>
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
@@ -205,17 +212,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>2.0.1</version>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.0.1</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>5.1.6.RELEASE</version>
-        </dependency>
-        <!-- mybatis end-->
 
         <dependency>
             <groupId>mysql</groupId>

@@ -1,0 +1,48 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mybatis-druid
+
+  datasource:
+    #url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
+    write:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: cauchy8389
+      password: tn_cauchy8389
+      url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
+      jdbc-url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+      #druid:
+      max-wait: 10000
+      max-active: 20
+      query-timeout: 10
+      validation-query: SELECT 1
+      use-global-data-source-stat: true
+    read:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: cauchy8389
+      password: tn_cauchy8389
+      url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
+      jdbc-url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+      #druid:
+      max-wait: 30000
+      max-active: 50
+      query-timeout: 10
+      validation-query: SELECT 1
+      use-global-data-source-stat: true
+
+logging:
+  level:
+    testspringcloud.data.mybatis: debug
+    testspringcloud.data.mybatis.dao: trace
+
+# 读写分离不适合
+#mybatis:
+#  configuration:
+#    # 下划线转驼峰
+#    map-underscore-to-camel-case: true
+#  mapper-locations: classpath:mappers/*.xml
+#  type-aliases-package: testspringcloud.data.mybatis.entity

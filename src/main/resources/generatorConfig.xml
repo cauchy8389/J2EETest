@@ -21,7 +21,7 @@
         <!-- jdbc连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://10.83.8.74:3306/crm"
-                        userId="cauchy8389" password="tn_cauchy8389" />
+                        userId="cauchy8389" password="xxxxxxx" />
 
         <!-- 类型转换 -->
         <javaTypeResolver>
