@@ -10,7 +10,7 @@ spring:
     write:
       driver-class-name: com.mysql.jdbc.Driver
       username: cauchy8389
-      password: tn_cauchy8389
+      password: xxxxxxx
       url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
       jdbc-url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
       type: com.alibaba.druid.pool.DruidDataSource
@@ -23,7 +23,7 @@ spring:
     read:
       driver-class-name: com.mysql.jdbc.Driver
       username: cauchy8389
-      password: tn_cauchy8389
+      password: xxxxxxx
       url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
       jdbc-url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false
       type: com.alibaba.druid.pool.DruidDataSource
