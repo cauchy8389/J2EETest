@@ -1,0 +1,14 @@
+server:
+  port: 8210
+spring:
+  application:
+    name: view-beetl
+  datasource:
+    druid:
+      enable: false
+
+
+beetlsql:
+  enabled: false
+beetl:
+  templatesPath: templates/
