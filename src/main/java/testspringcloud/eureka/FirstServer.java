@@ -4,7 +4,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@SpringBootApplication
+@SpringBootApplication(excludeName={"com.github.trang.druid.autoconfigure.DruidAutoConfiguration",
+        "com.github.trang.druid.autoconfigure.DruidDataSourceInitializerAutoConfiguration",
+        "org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"})
 @EnableEurekaServer
 public class FirstServer {
 
