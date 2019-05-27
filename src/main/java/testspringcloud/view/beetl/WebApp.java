@@ -3,12 +3,16 @@ package testspringcloud.view.beetl;
 import com.google.gson.Gson;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 import testspringcloud.Person;
-
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +22,10 @@ import java.util.List;
 		"org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"})
 @Controller
 public class WebApp {
+	public static ConfigurableApplicationContext BootContext= null;
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(WebApp.class)
+		BootContext = new SpringApplicationBuilder(WebApp.class)
 				.properties("spring.config.location=classpath:/springcloud/view-beetl.yml").run(args);
 	}
 
@@ -36,9 +41,14 @@ public class WebApp {
 		p1.setAge(10);
 		p1.setId(36);
 
-		Gson gson = new Gson();
+		Gson gson = (Gson)WebApplicationContextUtils.getWebApplicationContext(req.getServletContext()).getBean("theGson");
+		Gson gson2 = (Gson)BootContext.getBean("theGson");
+		view.addObject("gsonyes", gson == gson2);
+
+
 		String p1Str = gson.toJson(p1);
 		view.addObject("p1",p1Str);
+		view.addObject("person",p1);
 
 		List<Integer> arrInt = new ArrayList<Integer>();
 		arrInt.add(123);
@@ -47,5 +57,10 @@ public class WebApp {
 		view.addObject("arr",arrInt);
 
 		return view;
+	}
+
+	@Bean(name="theGson")
+	public Gson getGson(){
+		return new Gson();
 	}
 }
