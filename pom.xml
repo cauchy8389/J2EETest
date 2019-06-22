@@ -285,15 +285,16 @@
 
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                   <!-- <compilerArgs>
-                        <arg>-parameters</arg>
-                    </compilerArgs>
-                    <useIncrementalCompilation>false</useIncrementalCompilation>-->
+                    <!-- <compilerArgs>
+                         <arg>-parameters</arg>
+                     </compilerArgs>
+                     <useIncrementalCompilation>false</useIncrementalCompilation>-->
                 </configuration>
             </plugin>
 
@@ -305,6 +306,43 @@
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>testspringcloud.eureka.FirstServer</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.6.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
