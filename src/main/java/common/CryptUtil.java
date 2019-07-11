@@ -179,6 +179,11 @@ public class CryptUtil {
 
             System.out.println(date);
             System.out.println(holiday_next.format(DateTimeFormatter.ISO_DATE));
+
+            LocalDateTime ldt = LocalDateTime.now();
+            System.out.println(ldt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
+            System.out.println(ldt.format(DateTimeFormatter.BASIC_ISO_DATE));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
