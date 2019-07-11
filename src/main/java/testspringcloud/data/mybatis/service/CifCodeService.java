@@ -1,9 +1,15 @@
 package testspringcloud.data.mybatis.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisCluster;
 import testspringcloud.data.mybatis.dao.write.CifCodeMapper;
 import testspringcloud.data.mybatis.entity.CifCode;
 
@@ -24,7 +30,18 @@ public class CifCodeService {
         return cifCode;
     }
 
+    @Autowired
+    @Qualifier("stringRedisTemplate")
+    private StringRedisTemplate redisTemplate;
+
+    @Autowired
+    //private RedisTemplate<String, Object> redisTemplate;
+
     public void DoJedis(){
+
+        //JedisCluster jc = new JedisCluster();
+        //redisTemplate.opsForValue().get()
+
         // 登录本地的Redis
         Jedis jedis = new Jedis("zhy.cauchy8389.com");
         //jedis.auth("123456");

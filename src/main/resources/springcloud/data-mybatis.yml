@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: mybatis-druid
+  redis:
+    cluster:
+      nodes:
+        - 192.168.1.55:7001
+        - 192.168.1.55:7002
+        - 192.168.1.55:7003
 
   datasource:
     #url: jdbc:mysql://10.83.8.120:3306/crm?useSSL=false

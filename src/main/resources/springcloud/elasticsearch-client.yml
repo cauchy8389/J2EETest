@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: elasticsearch-client
+  main:
+    allow-bean-definition-overriding: true
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    sender:
+      type: kafka
+  kafka:
+    bootstrap-servers: 192.168.1.51:9092
+    consumer:
+      group-id: elasticsearch-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+elasticsearch:
+  hosts: 192.168.1.53:9200
+# 9200端口是用来让HTTP REST API来访问ElasticSearch，而9300端口是传输层监听的默认端口
+  tcp-port: 9300
+  pool: 5
+  cluster:
+    name: iiasaas-es6

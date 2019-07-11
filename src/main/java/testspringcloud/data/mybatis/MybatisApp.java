@@ -3,6 +3,8 @@ package testspringcloud.data.mybatis;
 import org.nutz.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +16,8 @@ import testspringcloud.data.mybatis.service.CifCodeService;
 import javax.servlet.http.HttpServletRequest;
 
 //xkcoding 借鉴
-@SpringBootApplication
+@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class,
+		org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class})
 @RestController
 public class MybatisApp {
 
