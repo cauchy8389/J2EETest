@@ -10,6 +10,8 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.session.web.http.DefaultCookieSerializer;
+import org.springframework.session.web.http.CookieHttpSessionStrategy;
 
 import java.util.List;
 
@@ -39,6 +41,21 @@ public class RedisConfig {
     }
 
 
+    /**
+     * session cookie策略
+     * @return
+     */
+    @Bean
+    public CookieHttpSessionStrategy cookieHttpSessionStrategy() {
+        CookieHttpSessionStrategy strategy = new CookieHttpSessionStrategy();
+        DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
+        cookieSerializer.setCookieName("IIASAASSESSIONID");//cookies名称
+        cookieSerializer.setCookieMaxAge(1800);//过期时间(秒)
+        //cookieSerializer.setDomainName();
+        //cookieSerializer.setDomainNamePattern();
+        strategy.setCookieSerializer(cookieSerializer);
+        return strategy;
+    }
 
 
 }
