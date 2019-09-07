@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
+@SpringBootApplication(excludeName={"com.github.trang.druid.autoconfigure.DruidAutoConfiguration",
+		"com.github.trang.druid.autoconfigure.DruidDataSourceInitializerAutoConfiguration",
+		"org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"})
 @RestController
 public class StreamClientApp {
 

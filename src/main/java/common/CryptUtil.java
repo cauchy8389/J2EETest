@@ -2,11 +2,10 @@ package common;
 
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.apache.commons.lang3.time.DateUtils;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -14,7 +13,6 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
-import java.text.ParseException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -189,5 +187,19 @@ public class CryptUtil {
         }
 
 
+        //JSON.parseArray()
+
+        int num = 127;
+        System.out.println(Base64.encodeBase64String(Bytes.toBytes(num)));
+
+        System.out.println(StringUtils.leftPad(Integer.toBinaryString(num),32, "0"));
+        System.out.println(Integer.toHexString(num));
+
+        //Byte.MAX_VALUE
+
+        System.out.println(Hex.encodeHexString(Bytes.toBytes(num)));
+
+        System.out.println(Bytes.toInt(Bytes.toBytes(num)));
     }
+
 }

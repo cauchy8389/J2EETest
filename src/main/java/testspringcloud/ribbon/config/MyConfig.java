@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.IRule;
 
+//此处Configuration 可以不用
+@Configuration
 public class MyConfig {
 	@Bean
 	public IRule getRule() {
