@@ -1,6 +1,10 @@
 package testspringcloud.esclient.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.elasticsearch.action.bulk.BulkItemResponse;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.bulk.BulkResponse;
 import testspringcloud.esclient.entity.EsPage;
 import org.apache.commons.lang3.StringUtils;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
@@ -174,6 +178,34 @@ public class ElasticsearchUtil {
      */
     public static String addData(JSONObject jsonObject, String index) {
         return addData(jsonObject, index, UUID.randomUUID().toString().replaceAll("-", "").toUpperCase());
+    }
+
+    public static <T> List<String> indexList(Map<String,T> map,String index){
+        BulkRequest bulkRequest = new BulkRequest();
+        for(Map.Entry<String,T> entry:map.entrySet()){
+            IndexRequest request = new IndexRequest(index);
+            request.id(entry.getKey()).type(es_type).source(JSON.toJSONString(entry.getValue()),XContentType.JSON);
+            bulkRequest.add(request);
+        }
+        return bulkExecute(bulkRequest,index);
+    }
+
+    public static List<String> bulkExecute(BulkRequest bulkRequest, String index)  {
+        BulkResponse bulkResponse ;
+        List<String> failIdList = new ArrayList<>();
+        try {
+            bulkResponse = client.bulk(bulkRequest, RequestOptions.DEFAULT);
+            for(BulkItemResponse itemResponse:bulkResponse.getItems()){
+                if(itemResponse.isFailed()){
+                    failIdList.add(itemResponse.getId());
+                    LOGGER.error("bulk fail,id-{},index-{},failMessge-{}",itemResponse.getId(),itemResponse.getIndex(),itemResponse.getFailureMessage());
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.error("bulk fail all"+index,e);
+            return null;
+        }
+        return failIdList;
     }
 
     /**
