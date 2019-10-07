@@ -1,11 +1,14 @@
 package common;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -25,6 +28,7 @@ import java.util.Random;
  * 2015-04-03
  */
 public class CryptUtil {
+    static Logger logger = LoggerFactory.getLogger(CryptUtil.class);
     
     //将 s 进行 BASE64 编码 
     public static String encryptHex(byte[] s) {      
@@ -188,6 +192,7 @@ public class CryptUtil {
 
 
         //JSON.parseArray()
+        JSON.parseObject("", String.class);
 
         int num = 127;
         System.out.println(Base64.encodeBase64String(Bytes.toBytes(num)));
@@ -200,6 +205,10 @@ public class CryptUtil {
         System.out.println(Hex.encodeHexString(Bytes.toBytes(num)));
 
         System.out.println(Bytes.toInt(Bytes.toBytes(num)));
+
+        logger.info("aaaaaaaaaaaa");
+        logger.warn("bbbbbbbbbbbb");
+        logger.trace("ttttttttttt");
     }
 
 }
