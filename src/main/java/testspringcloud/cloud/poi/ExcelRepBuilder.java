@@ -5,10 +5,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -41,8 +38,9 @@ public class ExcelRepBuilder {
         ByteArrayOutputStream baos = null;
         byte[] bytes =null;
         try{
-            HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
-            HSSFSheet sheet  = hssfWorkbook.createSheet(sheetName);
+            Workbook xssfWorkbook = WorkbookFactory.create(true);
+            //HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
+            Sheet sheet  = xssfWorkbook.createSheet(sheetName);
             int basic = 2560;
             sheet.setColumnWidth(0,basic);
             sheet.setColumnWidth(1,basic*2);
@@ -53,10 +51,10 @@ public class ExcelRepBuilder {
             sheet.setColumnWidth(6,basic*3);
             sheet.setColumnWidth(7,basic*3);
             sheet.setColumnWidth(8,basic*5);
-            HSSFRow headRow = sheet.createRow(0);
+            Row headRow = sheet.createRow(0);
             String[] headArray = new String[]{"公司名称","社会信用代码","注册地址",
                     "联系方式","开户许可证","开户人姓名","开户银行","银行账号","登陆人手机号"};
-            CellStyle cellStyle = hssfWorkbook.createCellStyle();
+            CellStyle cellStyle = xssfWorkbook.createCellStyle();
             cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
             cellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
             cellStyle.setFillBackgroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
@@ -66,13 +64,13 @@ public class ExcelRepBuilder {
             cellStyle.setBorderTop(BorderStyle.THIN);
             int cellIndex = 0;
             for(String value : headArray){
-                HSSFCell cell = headRow.createCell(cellIndex++);
+                Cell cell = headRow.createCell(cellIndex++);
                 cell.setCellValue(value);
                 cell.setCellStyle(cellStyle);
             }
             baos = new ByteArrayOutputStream();
             //IOUtils.copcop
-            hssfWorkbook.write(baos);
+            xssfWorkbook.write(baos);
             bytes =baos.toByteArray();
         }catch (Exception e){
             log.error("bomTemplate download error:",e);
