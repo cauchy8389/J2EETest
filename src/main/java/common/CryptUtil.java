@@ -20,6 +20,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import java.io.File;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.time.*;
@@ -216,16 +217,18 @@ public class CryptUtil {
         logger.warn("bbbbbbbbbbbb");
         logger.trace("ttttttttttt");
 
-//        try {
-//            POIXMLTextExtractor extractor = new XWPFWordExtractor(
-//                    new XWPFDocument(FileUtils.openInputStream(
-//                            new File("C:\\Users\\iiasaas\\Desktop\\nini.docx")))
-//            );
-//            System.out.println(extractor.getText());
-//            extractor.close();
-//        }catch (Exception ex){
-//
-//        }
+        try {
+            String path = "C:\\Users\\iiasaas\\Desktop\\nini.doc";
+            try (InputStream in = FileUtils.openInputStream(new File(path))) {
+                POIXMLTextExtractor extractor = new XWPFWordExtractor(
+                        new XWPFDocument(in)
+                );
+                System.out.println(extractor.getText());
+                extractor.close();
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 
 }
