@@ -6,7 +6,12 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.ooxml.POIXMLDocument;
+import org.apache.poi.ooxml.extractor.POIXMLTextExtractor;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +19,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
+import java.io.File;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.time.*;
@@ -209,6 +215,17 @@ public class CryptUtil {
         logger.info("aaaaaaaaaaaa");
         logger.warn("bbbbbbbbbbbb");
         logger.trace("ttttttttttt");
+
+//        try {
+//            POIXMLTextExtractor extractor = new XWPFWordExtractor(
+//                    new XWPFDocument(FileUtils.openInputStream(
+//                            new File("C:\\Users\\iiasaas\\Desktop\\nini.docx")))
+//            );
+//            System.out.println(extractor.getText());
+//            extractor.close();
+//        }catch (Exception ex){
+//
+//        }
     }
 
 }
