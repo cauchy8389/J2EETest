@@ -82,9 +82,10 @@ public abstract class AbstractSensitiveWordsFilter{
 				//File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + "sensitivewords" + File.separator + type.getName() + "词库.txt");
 				ClassPathResource classPathResource =
 						new ClassPathResource("sensitivewords" + File.separator + type.getName() + "词库.txt");
-				File file = classPathResource.getFile();
-				if(file == null || !file.exists())
+				if(!classPathResource.exists())
 					continue;
+
+				File file = classPathResource.getFile();
 
 				List<String> wordlists = Files.readLines(file, StandardCharsets.UTF_8);
 
