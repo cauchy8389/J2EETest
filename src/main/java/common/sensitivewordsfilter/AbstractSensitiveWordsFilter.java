@@ -45,14 +45,6 @@ public abstract class AbstractSensitiveWordsFilter{
 		this.refresh();
 	}
 
-	@Setter
-	private AbstractFilterExecutor<?> executor;
-
-	public void initAbstractSensitiveWordsFilter(AbstractFilterExecutor<?> executor){
-		this.executor = executor;
-	}
-
-
 	public abstract boolean checkExistence(String content, boolean partMatch);
 
 	public abstract boolean checkExistence(String content);
@@ -117,14 +109,7 @@ public abstract class AbstractSensitiveWordsFilter{
 		this.put(set);
 	}
 
-	public void refresh() throws RuntimeException {
+	public abstract void refresh();
 
-		executor.refresh();
-	}
-
-
-	public void destroy() throws RuntimeException {
-
-		executor.destroy();
-	}
+	public abstract void destroy();
 }

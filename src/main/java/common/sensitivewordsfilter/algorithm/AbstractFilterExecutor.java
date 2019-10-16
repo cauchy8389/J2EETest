@@ -28,8 +28,6 @@ public abstract class AbstractFilterExecutor<T> extends AbstractSensitiveWordsFi
 
 	public AbstractFilterExecutor(String listenerName) {
 		super();
-		this.setExecutor(this);
-		this.initAbstractSensitiveWordsFilter(this);
 		this.listenerName = listenerName;
 	}
 	
@@ -54,31 +52,17 @@ public abstract class AbstractFilterExecutor<T> extends AbstractSensitiveWordsFi
 	}
 
 	@Override
-	public void refresh() throws RuntimeException {
+	public void refresh() {
 		log.debug("{}: 刷新数据", getListenerName());
 		
-		try {
-			cacheNodes = this.getCacheNodes();
-			/*
-			List<SensitiveWords> list = JvmWordsCache.getInstance().get();
-			for (SensitiveWords word : list) {
-				put(word);
-			}
-			*/
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		cacheNodes = this.getCacheNodes();
+
 	}
 	
 	@Override
-	public void destroy() throws RuntimeException {
+	public void destroy() {
 		log.debug("{}: 销毁数据", getListenerName());
-		
-		try {
-			cacheNodes = null;
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+		cacheNodes = null;
 	}
 
 //	@Override
