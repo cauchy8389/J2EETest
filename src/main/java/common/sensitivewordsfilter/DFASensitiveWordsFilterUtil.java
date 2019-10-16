@@ -124,7 +124,7 @@ public final class DFASensitiveWordsFilterUtil {
 		log.debug("执行“过滤”敏感词接口：{}，算法：{}", FilterType.DFA.getClazz().getSimpleName(), FilterType.DFA.getDesc());
 		String result = wordsFilter.filter(target, replaceChar, partMatch);
 
-		log.debug("脱敏结果：{}", result);
+		//log.debug("脱敏结果：{}", result);
 		return result;
 	}
 
