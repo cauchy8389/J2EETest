@@ -1,15 +1,10 @@
 package common.sensitivewordsfilter.algorithm;
 
 import com.google.common.base.Strings;
-import com.google.common.collect.Sets;
 import common.sensitivewordsfilter.AbstractSensitiveWordsFilter;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -64,15 +59,6 @@ public abstract class AbstractFilterExecutor<T> extends AbstractSensitiveWordsFi
 		log.debug("{}: 销毁数据", getListenerName());
 		cacheNodes = null;
 	}
-
-//	@Override
-//	public abstract boolean checkExistence(String content);
-//
-//	@Override
-//	public abstract boolean checkExistence(String content, boolean partMatch);
-//
-//	@Override
-//	public abstract Set<String> getSensitiveWords(String content,boolean partMatch);
 
 	@Override
 	public String highlight(String content,boolean partMatch) {

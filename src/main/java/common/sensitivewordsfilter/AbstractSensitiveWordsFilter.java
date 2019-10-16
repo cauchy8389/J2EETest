@@ -2,17 +2,14 @@ package common.sensitivewordsfilter;
 
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
-import common.sensitivewordsfilter.algorithm.AbstractFilterExecutor;
 import common.sensitivewordsfilter.cache.JvmWordsCache;
 import common.sensitivewordsfilter.cache.WordsCache;
-import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

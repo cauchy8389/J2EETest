@@ -22,7 +22,6 @@ public class SensitiveWordTest {
         //ResourceUtils.CLASSPATH_URL_PREFIX
         System.out.println(dfaUtil.checkExistence(string,true));
         System.out.println(dfaUtil.checkExistence(string,false));
-        System.out.println("检测时间" + (System.currentTimeMillis() - start + "ms"));
 
         Set<String> set = dfaUtil.getSensitiveWords(string,true);
         System.out.println("语句中包含敏感词的个数为：" + set.size() + "。包含：" + set);
@@ -33,5 +32,7 @@ public class SensitiveWordTest {
         System.out.println(filterStr);
         filterStr = dfaUtil.filter(string,'*', false);
         System.out.println(filterStr);
+
+        System.out.println("执行时间" + (System.currentTimeMillis() - start + "ms"));
     }
 }
