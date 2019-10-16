@@ -59,7 +59,7 @@ public final class DFASensitiveWordsFilterUtil {
 	 * @param content 被匹配的语句
 	 * @return 返回匹配的敏感词语集合
 	 */
-	public Set<String> getWords(String content,boolean partMatch) {
+	public Set<String> getSensitiveWords(String content,boolean partMatch) {
 
 		if (StringUtils.isBlank(content)) {
 			throw new RuntimeException("必填参数content 为空");
