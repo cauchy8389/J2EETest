@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -68,7 +69,7 @@ public final class JvmWordsCache extends WordsCache {
 		return true;
 	}
 
-	public boolean put(List<String> words) throws Exception {
+	public boolean put(Collection<String> words) throws Exception {
 		super.put(words);
 
 		cache.addAll(words);

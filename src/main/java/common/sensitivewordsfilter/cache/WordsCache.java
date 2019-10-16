@@ -2,6 +2,7 @@ package common.sensitivewordsfilter.cache;
 
 import lombok.extern.log4j.Log4j2;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -41,7 +42,7 @@ public abstract class WordsCache{
     }
 
 
-    public boolean put(List<String> words) throws Exception {
+    public boolean put(Collection<String> words) throws Exception {
         log.debug("{}: put word list: {}", listenerName, words);
 
         return true;

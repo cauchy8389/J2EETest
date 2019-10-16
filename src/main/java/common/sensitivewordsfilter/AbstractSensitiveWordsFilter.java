@@ -86,7 +86,7 @@ public abstract class AbstractSensitiveWordsFilter{
 					i++;
 				}
 
-				jvmWordsCache.put(new ArrayList<String>(words));
+				jvmWordsCache.put(words);
 
 				System.out.println("循环单词: " + i + ", 插入数据：" + words.size());
 				Thread.sleep(30);
