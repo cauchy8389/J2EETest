@@ -10,7 +10,7 @@ import java.util.*;
  * 
  * @author zhy
  */
-public final class DfaFilterExecutor extends AbstractFilterExecutor<HashMap<Character,String>> {
+public final class DfaFilterExecutor extends AbstractFilterExecutor<Map<Character,String>> {
 
 	private static class SingleFactory {
 		private static final DfaFilterExecutor INSTANCE = new DfaFilterExecutor();
@@ -155,7 +155,7 @@ public final class DfaFilterExecutor extends AbstractFilterExecutor<HashMap<Char
 	}
 	
 	@Override
-	protected HashMap getCacheNodes() {
+	protected Map<Character,String> getCacheNodes() {
 		return Maps.newHashMap();
 	}
 	
