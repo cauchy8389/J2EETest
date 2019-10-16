@@ -108,7 +108,7 @@ public abstract class AbstractSensitiveWordsFilter{
 	 * @author zhy
 	 * @throws RuntimeException
 	 */
-	protected abstract void put(Set<String> sensitiveWordSet) throws RuntimeException;
+	protected abstract void put(Set<String> sensitiveWordSet);
 
 	public void putAllCacheWords() {
 		WordsCache jvmWordsCache = JvmWordsCache.getInstance();

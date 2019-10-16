@@ -25,7 +25,7 @@ public final class DfaFilterExecutor extends AbstractFilterExecutor<HashMap<Char
 	}
 	
 	@Override
-	protected void put(Set<String> sensitiveWordSet) throws RuntimeException {
+	protected void put(Set<String> sensitiveWordSet) {
 
 		//初始化敏感词容器，减少扩容操作
 		//sensitiveWordMap = new HashMap(sensitiveWordSet.size());
