@@ -1,12 +1,13 @@
 package testspringcloud.stream.producer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import testspringcloud.stream.producer.entity.Bar1;
+import testspringcloud.stream.producer.entity.Foo1;
 
 @RestController
 public class ProducerController {
@@ -33,4 +34,32 @@ public class ProducerController {
 		sendService.output().send(msg);
 		return "SUCCESS";
 	}
+
+	@Autowired
+	private KafkaTemplate<Object, Object> template;
+
+	@GetMapping(path = "/send/foo/{what}")
+	public void sendFoo(@PathVariable String what) {
+		this.template.send("foos", new Foo1(what));
+	}
+
+	@GetMapping(path = "/send/bar/{what}")
+	public void sendBar(@PathVariable String what) {
+		this.template.send("bars", new Bar1(what));
+	}
+
+	@GetMapping(path = "/send/unknown/{what}")
+	public void sendUnknown(@PathVariable String what) {
+		this.template.send("bars", what);
+	}
+
+    @GetMapping(path = "/send/foos/{what}")
+    public void sendFooGroup(@PathVariable String what) {
+        this.template.executeInTransaction(kafkaTemplate -> {
+            StringUtils.commaDelimitedListToSet(what).stream()
+                    .map(s -> new Foo1(s))
+                    .forEach(foo -> kafkaTemplate.send("topic2", foo));
+            return null;
+        });
+    }
 }
