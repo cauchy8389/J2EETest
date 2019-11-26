@@ -8,7 +8,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ooxml.POIXMLDocument;
 import org.apache.poi.ooxml.extractor.POIXMLTextExtractor;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -33,6 +32,7 @@ import java.util.Random;
  * 
  * @author haiyunzhang
  * 2015-04-03
+ * https://www.programcreek.com/
  */
 public class CryptUtil {
     static Logger logger = LoggerFactory.getLogger(CryptUtil.class);
@@ -217,18 +217,20 @@ public class CryptUtil {
         logger.warn("bbbbbbbbbbbb");
         logger.trace("ttttttttttt");
 
-        try {
-            String path = "C:\\Users\\iiasaas\\Desktop\\nini.doc";
-            try (InputStream in = FileUtils.openInputStream(new File(path))) {
-                POIXMLTextExtractor extractor = new XWPFWordExtractor(
-                        new XWPFDocument(in)
-                );
-                System.out.println(extractor.getText());
-                extractor.close();
-            }
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
+//        try {
+//            String path = "D:\\WorkData\\nini.doc";
+//            try (InputStream in = FileUtils.openInputStream(new File(path))) {
+//                POIXMLTextExtractor extractor = new XWPFWordExtractor(
+//                        new XWPFDocument(in)
+//                );
+//                System.out.println(extractor.getText());
+//                extractor.close();
+//            }
+//        }catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+
+        //org.gradle.api.internal.tasks
     }
 
 }
