@@ -1,5 +1,10 @@
-apply plugin: 'java'
-apply plugin: 'idea'
+plugins {
+    id 'java'
+    id 'idea'
+    id 'application'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
 
 repositories {
     maven { url "http://maven.aliyun.com/nexus/content/repositories/releases/" }
@@ -7,9 +12,22 @@ repositories {
     mavenCentral()
 }
 
+//buildscript {
+//    repositories {
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
+//    }
+//    dependencies {
+//        classpath "io.freefair.gradle:lombok-plugin:4.1.5"
+//    }
+//}
+//
+//apply plugin: "io.freefair.lombok"
+
 dependencies {
-    compile 'org.projectlombok:lombok:1.18.8'
-    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
     compile 'org.apache.commons:commons-lang3:3.9'
     compile 'com.alibaba:fastjson:1.2.60'
     compile 'org.codehaus.groovy:groovy-all:2.5.8'
@@ -66,22 +84,52 @@ dependencies {
 }
 
 // Run application with "application" plugin
-apply plugin: 'application'
 mainClassName = 'common.CryptUtil'
+sourceCompatibility = JavaVersion.VERSION_1_8
 
-run {
-    standardInput = System.in
-}
+//run {
+//    standardInput = System.in
+//}
+//
+//// Run application with JavaExec task
+//task runWithJavaExec(type: JavaExec) {
+//    dependsOn classes
+//    classpath configurations.runtime, sourceSets.main.output.classesDirs
+//    main = 'common.CryptUtil'
+//    standardInput = System.in
+//}
 
-// Run application with JavaExec task
-task runWithJavaExec(type: JavaExec) {
-    dependsOn classes
-    classpath configurations.runtime, sourceSets.main.output.classesDirs
-    main = 'common.CryptUtil'
-    standardInput = System.in
+jar {
+    zip64 = true
+    manifest {
+        attributes(
+//            'Class-Path': someString,
+            'Main-Class': 'common.CryptUtil',
+            'Start-Class': 'common.CryptUtil',
+            'Build-Jdk': '1.8.0_202'
+        )
+    }
 }
 
 wrapper {
     //distributionUrl =
     //distributionPath =
+}
+
+group = 'J2EETest'
+version = '1.0'
+description = 'J2EETest Maven Webapp'
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+shadowJar {
+    zip64 = true
+    
 }
