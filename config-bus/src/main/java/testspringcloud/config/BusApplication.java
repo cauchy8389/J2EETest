@@ -1,4 +1,4 @@
-package testspringcloud.config.bus;
+package testspringcloud.config;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

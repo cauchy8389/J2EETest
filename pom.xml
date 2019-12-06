@@ -12,6 +12,7 @@
         <module>core</module>
         <module>eureka-server</module>
         <module>config-server</module>
+        <module>config-bus</module>
         <module>zipkin2-server</module>
     </modules>
 
