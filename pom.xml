@@ -14,7 +14,7 @@
         <module>config-server</module>
         <module>config-bus</module>
         <module>zipkin2-server</module>
-        <module>data</module>
+        <module>data-view</module>
     </modules>
 
     <repositories>
