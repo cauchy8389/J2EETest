@@ -20,7 +20,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages="testspringcloud.data.mybatis.dao.write", sqlSessionTemplateRef="writeSqlSessionTemplate")
+@MapperScan(basePackages="testspringcloud.data.mybatis.write", sqlSessionTemplateRef="writeSqlSessionTemplate")
 public class WriteConfig {
 
     @Bean

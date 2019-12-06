@@ -1,4 +1,4 @@
-package testspringcloud.data.mybatis.dao.write;
+package testspringcloud.data.mybatis.write;
 
 import testspringcloud.data.mybatis.entity.CifCode;
 

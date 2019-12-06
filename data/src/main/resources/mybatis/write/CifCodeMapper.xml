@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="testspringcloud.data.mybatis.dao.write.CifCodeMapper">
+<mapper namespace="testspringcloud.data.mybatis.write.CifCodeMapper">
   <!--<resultMap id="BaseResultMap" type="com.zhy.test.entity.CifCode">-->
   <resultMap id="BaseResultMap" type="testspringcloud.data.mybatis.entity.CifCode">
     <id column="SERIALNO" jdbcType="INTEGER" property="SERIALNO" />

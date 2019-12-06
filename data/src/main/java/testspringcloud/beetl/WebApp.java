@@ -1,6 +1,7 @@
-package testspringcloud.view.beetl;
+package testspringcloud.beetl;
 
 import com.google.gson.Gson;
+import com.zhy.test.entity.CifCode;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -8,11 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.ContextLoader;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.servlet.ModelAndView;
-import testspringcloud.Person;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.servlet.ModelAndView;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,10 +35,10 @@ public class WebApp {
 		view.addObject("total","mytest1");
 
 
-		Person p1 = new Person();
-		p1.setName("zhy");
-		p1.setAge(10);
-		p1.setId(36);
+		CifCode p1 = new CifCode();
+		p1.setCODECNAME("zhy");
+		p1.setCODECODE("10");
+		p1.setREMARK("haha");
 
 		Gson gson = (Gson)WebApplicationContextUtils.getWebApplicationContext(req.getServletContext()).getBean("theGson");
 		Gson gson2 = (Gson)BootContext.getBean("theGson");

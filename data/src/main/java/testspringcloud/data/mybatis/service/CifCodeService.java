@@ -9,8 +9,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisCluster;
-import testspringcloud.data.mybatis.dao.write.CifCodeMapper;
+import testspringcloud.data.mybatis.write.CifCodeMapper;
 import testspringcloud.data.mybatis.entity.CifCode;
 
 import java.util.HashMap;
