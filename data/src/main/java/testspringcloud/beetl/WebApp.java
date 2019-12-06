@@ -18,7 +18,8 @@ import java.util.List;
 
 @SpringBootApplication(excludeName={"com.github.trang.druid.autoconfigure.DruidAutoConfiguration",
 		"com.github.trang.druid.autoconfigure.DruidDataSourceInitializerAutoConfiguration",
-		"org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"})
+		"org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration",
+		"org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration"})
 @Controller
 public class WebApp {
 	public static ConfigurableApplicationContext BootContext= null;
