@@ -24,4 +24,4 @@ elasticsearch:
   tcp-port: 9300
   pool: 5
   cluster:
-    name: iiasaas-es6
+    name: zhy-es6
