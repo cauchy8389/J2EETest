@@ -49,7 +49,7 @@ public class RedisConfig {
 //    public CookieHttpSessionStrategy cookieHttpSessionStrategy() {
 //        CookieHttpSessionStrategy strategy = new CookieHttpSessionStrategy();
 //        DefaultCookieSerializer cookieSerializer = new DefaultCookieSerializer();
-//        cookieSerializer.setCookieName("IIASAASSESSIONID");//cookies名称
+//        cookieSerializer.setCookieName("THESESSIONID");//cookies名称
 //        cookieSerializer.setCookieMaxAge(1800);//过期时间(秒)
 //        //cookieSerializer.setDomainName();
 //        //cookieSerializer.setDomainNamePattern();
