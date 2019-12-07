@@ -4,7 +4,7 @@ spring:
   application:
     name: spring-producer
   kafka:
-    bootstrap-servers: 192.168.1.93:9092
+    bootstrap-servers: 192.168.1.13:9092
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
