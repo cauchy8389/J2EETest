@@ -7,10 +7,12 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ooxml.extractor.POIXMLTextExtractor;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.nutz.lang.util.Regex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +29,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 
@@ -231,6 +235,14 @@ public class CryptUtil {
 //        }
 
         //org.gradle.api.internal.tasks
+
+        String pattern = "\\d+";
+        String str = "123ghjk456";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(str);
+        while(m.find()) {
+            System.out.println(m.group());
+        }
     }
 
 }
