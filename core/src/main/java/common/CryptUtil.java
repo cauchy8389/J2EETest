@@ -22,6 +22,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import java.io.File;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.time.*;
@@ -159,12 +160,12 @@ public class CryptUtil {
         //MethodUtils.in
         String tmp1 = "fkdfigjg";
         MessageDigest md5Digest = DigestUtils.getMd5Digest();
-        System.out.println(Hex.encodeHex(tmp1.getBytes(Charsets.UTF_8)));
-        System.out.println(Hex.encodeHex(md5Digest.digest(tmp1.getBytes(Charsets.UTF_8))));
+        System.out.println(Hex.encodeHex(tmp1.getBytes(StandardCharsets.UTF_8)));
+        System.out.println(Hex.encodeHex(md5Digest.digest(tmp1.getBytes(StandardCharsets.UTF_8))));
 
         String tmp2 = "fkdfigjg";
-        System.out.println(Hex.encodeHex(tmp2.getBytes(Charsets.UTF_8)));
-        System.out.println(DigestUtils.md5Hex(tmp2.getBytes(Charsets.UTF_8)));
+        System.out.println(Hex.encodeHex(tmp2.getBytes(StandardCharsets.UTF_8)));
+        System.out.println(DigestUtils.md5Hex(tmp2.getBytes(StandardCharsets.UTF_8)));
 
         //[B@5594a1b5
         //[B@6a5fc7f7
