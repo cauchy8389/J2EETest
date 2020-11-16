@@ -1,5 +1,6 @@
 package common;
 
+import cn.hutool.core.util.NumberUtil;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.DecoderException;
@@ -179,6 +180,8 @@ public class CryptUtil {
         System.out.println(StringUtils.chop(tmp3));
 
         try {
+            System.out.println("\n\n测试Date:");
+
             LocalDate holiday = LocalDate.parse("2018-12-25", DateTimeFormatter.ISO_DATE);
             LocalDate holiday_next = holiday.plusDays(1);
             ZoneId zoneId = ZoneId.systemDefault();
@@ -206,17 +209,19 @@ public class CryptUtil {
         //JSON.parseArray()
         JSON.parseObject("", String.class);
 
-        int num = 127;
+        int num = 129;
+        System.out.println("\n\n测试Bytes:");
         System.out.println(Base64.encodeBase64String(Bytes.toBytes(num)));
-
+        System.out.println(Base64.encodeBase64String(NumberUtil.toBytes(num)));
         System.out.println(StringUtils.leftPad(Integer.toBinaryString(num),32, "0"));
         System.out.println(Integer.toHexString(num));
 
         //Byte.MAX_VALUE
 
         System.out.println(Hex.encodeHexString(Bytes.toBytes(num)));
-
+        System.out.println(Hex.encodeHexString(NumberUtil.toBytes(num)));
         System.out.println(Bytes.toInt(Bytes.toBytes(num)));
+        System.out.println(NumberUtil.toInt(NumberUtil.toBytes(num)));
 
         logger.info("aaaaaaaaaaaa");
         logger.warn("bbbbbbbbbbbb");
