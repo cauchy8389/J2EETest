@@ -60,13 +60,11 @@ public final class Dfa2FilterExecutor extends AbstractFilterExecutor<WordTree> {
 	 *
 	 * @param txt       文字
 	 * @param partMatch 匹配规则 true：最小匹配规则，false：最大匹配规则
-	 * @return
+	 * @return Set<String>
 	 */
 	public Set<String> getSensitiveWords(String txt, boolean partMatch) {
 		List<String> matchAll = cacheNodes.matchAll(txt, -1, false, partMatch); //判断是否包含敏感字符
-		Set<String> sensitiveWordList = new HashSet<>(matchAll);
-
-		return sensitiveWordList;
+		return new HashSet<>(matchAll);
 	}
 	
 	@Override
