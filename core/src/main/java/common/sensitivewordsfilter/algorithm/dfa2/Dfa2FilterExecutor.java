@@ -96,14 +96,14 @@ public final class Dfa2FilterExecutor extends AbstractFilterExecutor<WordTree> {
 		System.out.println(Dfa2FilterExecutor.getInstance().getSensitiveWords(content,true));
 		System.out.println(Dfa2FilterExecutor.getInstance().filter(content, '*',false));
 		System.out.println(Dfa2FilterExecutor.getInstance().highlight(content,false));
-		System.out.println(Dfa2FilterExecutor.getInstance().highlight(content,false));
+		System.out.println(Dfa2FilterExecutor.getInstance().highlight(content,true));
 		
 		content = "一举成名走四方的是什么";
 		System.out.println(Dfa2FilterExecutor.getInstance().getSensitiveWords(content,false));
-		System.out.println(Dfa2FilterExecutor.getInstance().getSensitiveWords(content,false));
+		System.out.println(Dfa2FilterExecutor.getInstance().getSensitiveWords(content,true));
 		System.out.println(Dfa2FilterExecutor.getInstance().filter(content, '*',false));
 		System.out.println(Dfa2FilterExecutor.getInstance().highlight(content,false));
-		System.out.println(Dfa2FilterExecutor.getInstance().highlight(content,false));
+		System.out.println(Dfa2FilterExecutor.getInstance().highlight(content,true));
 		
 	}
 }

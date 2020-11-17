@@ -190,7 +190,7 @@ public final class DfaFilterExecutor extends AbstractFilterExecutor<Map<Characte
 		System.out.println(DfaFilterExecutor.getInstance().getSensitiveWords(content,false));
 		System.out.println(DfaFilterExecutor.getInstance().filter(content, '*',false));
 		System.out.println(DfaFilterExecutor.getInstance().highlight(content,false));
-		System.out.println(DfaFilterExecutor.getInstance().highlight(content,false));
+		System.out.println(DfaFilterExecutor.getInstance().highlight(content,true));
 		
 	}
 }
