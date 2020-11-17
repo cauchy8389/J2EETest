@@ -2,6 +2,7 @@ package common.sensitivewordsfilter.factory;
 
 import common.sensitivewordsfilter.AbstractSensitiveWordsFilter;
 import common.sensitivewordsfilter.algorithm.dfa.DfaFilterExecutor;
+import common.sensitivewordsfilter.algorithm.dfa2.Dfa2FilterExecutor;
 
 
 /**
@@ -10,7 +11,8 @@ import common.sensitivewordsfilter.algorithm.dfa.DfaFilterExecutor;
  */
 public enum FilterType {
 
-	DFA("dfa算法", DfaFilterExecutor.class);
+	DFA("dfa算法", DfaFilterExecutor.class),
+	DFA2("dfa2算法", Dfa2FilterExecutor.class);
 	
 	private String desc;
 	private Class<? extends AbstractSensitiveWordsFilter> clazz;

@@ -36,6 +36,16 @@ public final class DFASensitiveWordsFilterUtil {
 		}
 	}
 
+	public void turnToDFA2(){
+		try {
+			wordsFilter = SensitiveWordsFilterFactory.create(FilterType.DFA2);
+			wordsFilter.initAll();
+			wordsFilter.putAllCacheWords();
+		}catch (Exception ex){
+
+		}
+	}
+
 	/**
 	 * 是否包含敏感字符
 	 * @author zhy
