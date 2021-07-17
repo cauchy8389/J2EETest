@@ -1,0 +1,6 @@
+server:
+  port: 8799
+
+spring:
+  application:
+    name: spring-nacos-test
