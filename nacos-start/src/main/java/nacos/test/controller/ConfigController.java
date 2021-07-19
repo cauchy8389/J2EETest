@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Controller
 @RequestMapping("config")
@@ -32,9 +31,9 @@ public class ConfigController {
     }
 
     /**
-     * curl -X POST 'http://localhost:8080/config?dataId=example&content=useLocalCache=false'
+     * curl -X POST "http://localhost:8799/config?dataId=spring-nacos-test&content=user.name=jamesgangluan1"
      */
-    @RequestMapping(method = GET)
+    @RequestMapping(method = POST)
     @ResponseBody
     public ResponseEntity<String> publish(@RequestParam String dataId,
                                           @RequestParam(defaultValue = "DEFAULT_GROUP") String group,

@@ -16,6 +16,8 @@
         <module>zipkin2-server</module>
         <module>data-view</module>
         <module>elasticsearch</module>
+        <module>nacos-start</module>
+        <module>nacos-spring-cloud-config-example</module>
     </modules>
 
     <repositories>

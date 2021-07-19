@@ -4,3 +4,26 @@ server:
 spring:
   application:
     name: spring-nacos-test
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 192.168.1.13:8848
+
+    config:
+      server:
+        git:
+          uri: https://github.com/cauchy8389/J2EETest
+          search-paths: config
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: nacos_config
+  endpoint:
+    health:
+      show-details: always
