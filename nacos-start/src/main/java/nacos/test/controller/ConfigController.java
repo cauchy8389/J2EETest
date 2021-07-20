@@ -5,29 +5,33 @@ import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.api.exception.NacosException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
-@Controller
+@RestController
 @RequestMapping("config")
+@RefreshScope
 public class ConfigController {
 
     @NacosInjected
     private ConfigService configService;
 
-    @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
-    private boolean useLocalCache;
+    @Value(value = "${test.user.name: dodo}")
+    private String myJack;
 
     @RequestMapping(value = "/get", method = GET)
     @ResponseBody
-    public boolean get() {
-        return useLocalCache;
+    public String get() {
+        return myJack;
     }
 
     /**
