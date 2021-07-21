@@ -1,6 +1,7 @@
 package nacos.test.controller;
 
 
+import com.alibaba.cloud.nacos.NacosConfigManager;
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
@@ -22,8 +23,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RefreshScope
 public class ConfigController {
 
-    @NacosInjected
-    private ConfigService configService;
+//    @NacosInjected
+//    private ConfigService configService;
+
+    @Autowired
+    private NacosConfigManager nacosConfigManager;
 
     @Value(value = "${test.user.name: dodo}")
     private String myJack;
@@ -42,7 +46,7 @@ public class ConfigController {
     public ResponseEntity<String> publish(@RequestParam String dataId,
                                           @RequestParam(defaultValue = "DEFAULT_GROUP") String group,
                                           @RequestParam String content) throws NacosException {
-        boolean result = configService.publishConfig(dataId, group, content);
+        boolean result = nacosConfigManager.getConfigService().publishConfig(dataId, group, content);
         if (result) {
             return new ResponseEntity<String>("Success", HttpStatus.OK);
         }
